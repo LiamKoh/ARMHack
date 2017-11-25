@@ -30,14 +30,6 @@ void lcd_print(const char* message) {
     lcd.printf(message);
 }
 
-void read_temp() {
-    float t = temp_sensor.readTemperature();
-    float h = temp_sensor.readHumidity();
-    char val[32];
-    sprintf(val, "TEMP: %3.2fc, HUM: %3.2f%%", t, h);
-    lcd_print(val);
-}
-
 // Air quality
 void read_air() {
     air_sensor.init();
@@ -49,13 +41,6 @@ void read_air() {
 }
 
 int main() {
-
-    // MAIN CODE HERE
-    while(1)
-    {
-        read_temp();
-        wait_ms(2000);
-    }
     
     // MAIN CODE HERE
     while(1) {
